@@ -29,6 +29,7 @@ module Administrate
         super
         method_name = @attribute.to_s.pluralize
         @collection = @options.fetch(:class_name, '').constantize.send(method_name) if  @collection.empty?
+        @collection
       end
     end
   end

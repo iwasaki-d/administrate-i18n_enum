@@ -1,6 +1,6 @@
 # Administrate::Field::I18nEnum
 
-A plugin to i18n enum attribute select box in [administrate].
+A plugin to i18n enum attribute select box in [Administrate](https://github.com/thoughtbot/administrate).
 
 i18nに対応したAdministrate用のPluginです。
 ActiveRecordモデルのenum属性の表示をi18nのlocaleで置き換えselectboxを表示します。

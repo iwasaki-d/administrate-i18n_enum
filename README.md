@@ -1,8 +1,9 @@
 # Administrate::Field::I18nEnum
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/administrate/field/i18n_enum`. To experiment with that code, run `bin/console` for an interactive prompt.
+A plugin to i18n enum attribute select box in [Administrate].
 
-TODO: Delete this and the text above, and describe your gem
+i18nに対応したAdministrate用のPluginです。
+ActiveRecordモデルのenum属性の表示をi18nのlocaleで置き換えselectboxを表示します。
 
 ## Installation
 
@@ -22,17 +23,50 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+class Human < ApplicationRecord
+  enum gender: { male: 0, female: 1 }
+end
+```
 
-## Development
+```ruby
+gender: Field::I18nEnum.with_options(class_name: 'Human'),
+```
+Put it into ATTRIBUTE_TYPES of HumanDashboard Class, please.
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+## Options
+
+| Options    |Type            | Required     | Description                           |
+|------------|:--------------:|:------------:|--------------------------------------:|
+| class_name |String          | True         | Class name of enum attribute.         |
+| collection |Array           | False(Any)   | If irregular plural or want to use custom options. You can set options of array.|
+| null       |Boolean         | False(Any)   | True, nil value option will be inserted into select box.         |
+| scope      |symbol or Array | False(Any)   | Using scope option of i18n.translate.        |
+
+## locales Example
+Default:
+```yml
+ja:
+  human:
+    gender:
+      male: 男性
+      female: 女性
+```
+
+When set "scope: :enums". 
+```yml
+ja:
+  enums:
+    human:
+      gender:
+        male: 男性
+        female: 女性
+```
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/administrate-field-i18n_enum. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/iwasaki_d/administrate-field-i18n_enum. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 
 ## License

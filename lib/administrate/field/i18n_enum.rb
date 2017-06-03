@@ -15,8 +15,6 @@ module Administrate
         enums
       end
 
-      private
-
       def class_name
         @options.fetch(:class_name, '').camelcase.downcase
       end
@@ -25,10 +23,12 @@ module Administrate
         I18n.t("#{class_name}.#{attribute}.#{value}", scope: @options.fetch(:scope, nil), default: value)
       end
 
+      private
+
       def collection
         super
         method_name = @attribute.to_s.pluralize
-        @collection = @options.fetch(:class_name, '').constantize.send(method_name) if  @collection.empty?
+        @collection = @options.fetch(:class_name, '').constantize.send(method_name) if @collection.empty?
         @collection
       end
     end

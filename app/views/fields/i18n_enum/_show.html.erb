@@ -1,2 +1,2 @@
-<%= field.data.nil? ? '' : t(i18n_path (field.class_name, field.attribute, field.data), default: field.data) %>
+<%= field.data.nil? ? '' : field.translate(field.class_name, field.attribute, field.data) %>
 

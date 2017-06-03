@@ -38,11 +38,11 @@ Put it into ATTRIBUTE_TYPES of HumanDashboard Class, please.
 ## Options
 
 | Options    |Type            | Required     | Description                           |
-|------------|:--------------:|:------------:|--------------------------------------:|
+|------------|:--------------:|:------------:|:--------------------------------------|
 | class_name |String          | True         | Class name of enum attribute.         |
 | collection |Array           | False(Any)   | If irregular plural or want to use custom options. You can set options of array.|
 | null       |Boolean         | False(Any)   | True, nil value option will be inserted into select box.         |
-| scope      |symbol or Array | False(Any)   | Using scope option of i18n.translate.        |
+| scope      |symbol or Array | False(Any)   | It is used for the scope option of i18n.translate        |
 
 ## locales Example
 Default:

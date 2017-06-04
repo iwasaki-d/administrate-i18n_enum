@@ -4,7 +4,7 @@ A plugin to i18n enum attribute select box in [Administrate](https://github.com/
 
 i18nに対応したAdministrate用のPluginです。
 ActiveRecordモデルのenum属性の表示をi18nのlocaleで置き換えselectboxを表示します。
-例えば、ja.ymlを設定することでenumのselectbox子要素のラベルが日本語に置き替わります。
+例えば、ja.ymlを設定することでenumのselectbox子要素のラベルが日本語化されます。
 
 ## Installation
 

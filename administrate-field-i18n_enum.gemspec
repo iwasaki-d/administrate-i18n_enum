@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |spec|
   spec.name          = "administrate-field-i18n_enum"
-  spec.version       = '0.1.5'
+  spec.version       = '0.1.6'
   spec.authors       = ["iwasaki_d"]
   spec.email         = ["d.iwasaki.g@gmail.com"]
 

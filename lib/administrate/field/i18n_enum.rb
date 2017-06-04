@@ -7,23 +7,24 @@ module Administrate
       class Engine < ::Rails::Engine
       end
 
-      def enum_options
+      def selectable_options
         enums = collection.map do |k, v|
-          [translate(class_name, @attribute, k), k]
+          label, value = translate(k), k
+          [label, value]
         end
         enums.unshift(['', nil]) if @options.fetch(:null, false) == true
         enums
       end
 
-      def class_name
-        @options.fetch(:class_name, '').camelcase.downcase
-      end
-
-      def translate(class_name, attribute, value)
-        I18n.t("#{class_name}.#{attribute}.#{value}", scope: @options.fetch(:scope, nil), default: value)
+      def translate(value)
+        I18n.t("#{class_name}.#{@attribute}.#{value}", scope: @options.fetch(:scope, nil), default: value)
       end
 
       private
+
+      def class_name
+        @options.fetch(:class_name, '').camelcase.downcase
+      end
 
       def collection
         super
